@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order | Custom T-Works</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f97316', /* Orange */
+                        secondary: '#ea580c', /* Dark Orange */
+                        dark: '#0f172a', /* Navy Blue slate-900 */
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-slate-900 text-slate-50 antialiased overflow-x-hidden selection:bg-primary selection:text-dark">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex gap-2 items-center">
+                    <a href="index.html">
+                        <img src="images/logo.jpg" alt="Custom T-Works Logo"
+                            class="h-16 sm:h-20 w-auto object-contain py-1 rounded-sm bg-white/10 p-1">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-slate-300 hover:text-white transition-colors">Home</a>
+                    <a href="products.html" class="text-slate-300 hover:text-white transition-colors">Products</a>
+                    <a href="order.html" class="text-primary font-medium transition-colors">Order Now</a>
+                    <a href="contact.html" class="text-slate-300 hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass mt-4 border-t border-slate-700/50">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-2 text-slate-300 hover:text-white">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-slate-300 hover:text-white">Products</a>
+                <a href="order.html" class="block px-3 py-2 text-primary font-medium">Order Now</a>
+                <a href="contact.html" class="block px-3 py-2 text-slate-300 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-8 px-4 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1
+                class="text-5xl border-b border-slate-800 pb-6 md:text-6xl font-extrabold outfit-font mb-6 fade-in opacity-0 translate-y-10 transition-all duration-700">
+                Place Your <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Order</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-8 pb-32">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="glass p-8 md:p-12 rounded-3xl border border-slate-700/50 shadow-2xl relative overflow-hidden fade-in opacity-0 translate-y-10 transition-all duration-700 delay-100">
+                <!-- BG Glow Details -->
+                <div
+                    class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-secondary/10 rounded-full blur-[80px] -z-10">
+                </div>
+
+                <form id="orderForm" action="https://formspree.io/f/mreoqbko" method="POST"
+                    enctype="multipart/form-data" class="space-y-8 z-10 relative">
+                    <input type="hidden" name="_subject" value="New Custom Order!">
+
+                    <!-- Contact Details -->
+                    <div>
+                        <h3 class="text-2xl outfit-font font-bold mb-4 text-white">1. Contact Details</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Full Name</label>
+                                <input type="text" name="FullName" required
+                                    class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white transition-colors"
+                                    placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Phone Number</label>
+                                <input type="tel" name="Phone" required
+                                    class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white transition-colors"
+                                    placeholder="07X XXX XXXX">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Delivery Address</label>
+                                <input type="text" name="Address" required
+                                    class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white transition-colors"
+                                    placeholder="123 Main St, Colombo">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-700/50"></div>
+
+                    <!-- Order Details -->
+                    <div>
+                        <h3 class="text-2xl outfit-font font-bold mb-4 text-white">2. Apparel Details</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Apparel Type</label>
+                                <select name="ApparelType"
+                                    class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white appearance-none cursor-pointer">
+                                    <option>Classic T-Shirt</option>
+                                    <option>Premium Hoodie</option>
+                                    <option>Custom Trousers</option>
+                                    <option>Snapback Cap</option>
+                                    <option>Formal/Casual Shirt</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Material / Fabric</label>
+                                <select name="Material"
+                                    class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white appearance-none cursor-pointer">
+                                    <option>Standard Cotton (190 GSM)</option>
+                                    <option>Wetlook</option>
+                                    <option>Crocodiles</option>
+                                    <option>Honeycomb</option>
+                                </select>
+                            </div>
+                            <div class="col-span-1 md:col-span-2">
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Select Apparel
+                                    Color</label>
+                                <div
+                                    class="grid grid-cols-6 sm:grid-cols-9 md:grid-cols-12 gap-3 mt-4 mb-2 bg-slate-900/50 p-6 rounded-2xl border border-slate-700/50">
+                                    <!-- Neutrals / Greyscale -->
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(228, 228, 226)" class="peer sr-only" checked>
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(228, 228, 226);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(150, 155, 151)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(150, 155, 151);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(49, 43, 43)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(49, 43, 43);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(9, 14, 18)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(9, 14, 18);"></div>
+                                    </label>
+
+                                    <!-- Reds & Pinks -->
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(207, 3, 1)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(207, 3, 1);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(189, 1, 24)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(189, 1, 24);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(172, 6, 80)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(172, 6, 80);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(149, 24, 64)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(149, 24, 64);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(214, 0, 67)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(214, 0, 67);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(225, 53, 117)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(225, 53, 117);"></div>
+                                    </label>
+
+                                    <!-- Oranges, Yellows, & Browns -->
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(248, 107, 1)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(248, 107, 1);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(232, 116, 57)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(232, 116, 57);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(203, 65, 0)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(203, 65, 0);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(201, 117, 9)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(201, 117, 9);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(237, 193, 120)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(237, 193, 120);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(216, 194, 135)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(216, 194, 135);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(255, 189, 5)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(255, 189, 5);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(253, 221, 9)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(253, 221, 9);"></div>
+                                    </label>
+
+                                    <!-- Greens -->
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(151, 198, 2)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(151, 198, 2);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(104, 195, 7)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(104, 195, 7);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(13, 162, 72)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(13, 162, 72);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(114, 134, 0)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(114, 134, 0);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(18, 73, 68)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(18, 73, 68);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(59, 75, 75)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(59, 75, 75);"></div>
+                                    </label>
+
+                                    <!-- Blues -->
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(100, 190, 224)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(100, 190, 224);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(46, 169, 223)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(46, 169, 223);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(91, 137, 188)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(91, 137, 188);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(0, 116, 154)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(0, 116, 154);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(1, 113, 136)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(1, 113, 136);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(1, 104, 177)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(1, 104, 177);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(4, 88, 161)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(4, 88, 161);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(3, 45, 118)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(3, 45, 118);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(18, 42, 102)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(18, 42, 102);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(18, 39, 60)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(18, 39, 60);"></div>
+                                    </label>
+
+                                    <!-- Purples / Slate Blues -->
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(86, 102, 171)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(86, 102, 171);"></div>
+                                    </label>
+                                    <label class="cursor-pointer group relative"><input type="radio" name="color"
+                                            value="rgba(39, 79, 89)" class="peer sr-only">
+                                        <div class="w-8 h-8 rounded-full border-2 border-slate-700 peer-checked:border-primary peer-checked:scale-125 transition-all shadow-md group-hover:scale-110"
+                                            style="background-color: rgba(39, 79, 89);"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Size</label>
+                                <select name="Size"
+                                    class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white appearance-none cursor-pointer">
+                                    <option>Small (S)</option>
+                                    <option selected>Medium (M)</option>
+                                    <option>Large (L)</option>
+                                    <option>Extra Large (XL)</option>
+                                    <option>XXL</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Quantity <span
+                                        class="text-xs text-primary">(Min: 5)</span></label>
+                                <input type="number" name="Quantity" min="5" value="5" required
+                                    onchange="if(this.value < 5) this.value = 5;"
+                                    onblur="if(this.value < 5 || this.value === '') this.value = 5;"
+                                    class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-700/50"></div>
+
+                    <!-- Design Details -->
+                    <div>
+                        <h3 class="text-2xl outfit-font font-bold mb-4 text-white">3. Your Design</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Upload Artwork</label>
+                                <div
+                                    class="border-2 border-dashed border-slate-700 rounded-2xl p-8 text-center hover:border-primary hover:bg-slate-800/30 transition-all cursor-pointer group">
+                                    <svg class="mx-auto h-12 w-12 text-slate-500 group-hover:text-primary transition-colors mb-4"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                    </svg>
+                                    <p class="text-sm text-slate-400"><span class="text-primary font-semibold">Click to
+                                            upload</span> or drag and drop</p>
+                                    <p class="text-xs text-slate-500 mt-2">PNG, JPG, SVG or PDF (MAX. 20MB)</p>
+                                    <input type="file" id="artworkInput" name="Artwork" class="hidden"
+                                        accept="image/*,.pdf">
+                                    <p id="fileNameDisplay" class="text-primary text-sm mt-2 font-medium hidden"></p>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Additional
+                                    Instructions</label>
+                                <textarea name="Instructions" rows="3"
+                                    class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white"
+                                    placeholder="Where do you want the print? Any specific dimensions?"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button id="orderSubmitBtn" type="submit"
+                        class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold text-lg py-4 rounded-xl hover:shadow-[0_0_20px_rgba(249,115,22,0.5)] transition-all hover:-translate-y-1">
+                        Submit Order Inquiry
+                    </button>
+                    <div class="text-center mt-6">
+                        <p class="text-sm text-slate-400 mb-3">We will contact you with a final quote before printing.
+                        </p>
+                        <div class="bg-primary/10 border border-primary/20 py-3 px-5 rounded-xl inline-block">
+                            <p class="text-sm text-primary">
+                                <span class="font-bold">Important:</span> If we haven't called you within 24 hours of
+                                placing your order, please call us directly at <span
+                                    class="font-bold text-white tracking-widest ml-1">074 026 5989</span>.
+                            </p>
+                        </div>
+                    </div>
+                    <p id="orderStatus" class="mx-auto text-center mt-2 hidden"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm">
+                &copy; 2026 Custom T-Works. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

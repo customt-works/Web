@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Custom T-Works</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f97316', /* Orange */
+                        secondary: '#ea580c', /* Dark Orange */
+                        dark: '#0f172a', /* Navy Blue slate-900 */
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-slate-900 text-slate-50 antialiased overflow-x-hidden selection:bg-primary selection:text-dark">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex gap-2 items-center">
+                    <a href="index.html">
+                        <img src="images/logo.jpg" alt="Custom T-Works Logo"
+                            class="h-16 sm:h-20 w-auto object-contain py-1 rounded-sm bg-white/10 p-1">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-slate-300 hover:text-white transition-colors">Home</a>
+                    <a href="products.html" class="text-primary font-medium transition-colors">Products</a>
+                    <a href="order.html" class="text-slate-300 hover:text-white transition-colors">Order Now</a>
+                    <a href="contact.html" class="text-slate-300 hover:text-white transition-colors">Contact</a>
+                    <a href="order.html"
+                        class="bg-primary text-dark font-bold px-6 py-2 rounded-full hover:bg-white transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass mt-4 border-t border-slate-700/50">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-2 text-slate-300 hover:text-white">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-primary font-medium">Products</a>
+                <a href="order.html" class="block px-3 py-2 text-slate-300 hover:text-white">Order Now</a>
+                <a href="contact.html" class="block px-3 py-2 text-slate-300 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-16 px-4 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent -z-10"></div>
+        <div class="max-w-7xl mx-auto text-center">
+            <h1
+                class="text-5xl md:text-6xl font-extrabold outfit-font mb-6 fade-in opacity-0 translate-y-10 transition-all duration-700">
+                Our <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Customizable</span>
+                Collection
+            </h1>
+            <p
+                class="text-xl text-slate-400 max-w-2xl mx-auto fade-in opacity-0 translate-y-10 transition-all duration-700 delay-100">
+                Choose from our premium selection of garments below. Everything can be printed with your unique designs.
+            </p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-16 pb-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Product 1 -->
+                <div
+                    class="glass rounded-3xl overflow-hidden group hover-scale border border-slate-700/50 fade-in opacity-0 translate-y-10 transition-all duration-700 delay-100">
+                    <div class="relative h-80 overflow-hidden bg-slate-800">
+                        <img src="images/tshirt.png" alt="Custom T-Shirt"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/90 to-transparent"></div>
+                        <div class="absolute bottom-4 left-6">
+                            <span
+                                class="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 inline-block backdrop-blur-md">Best
+                                Seller</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold outfit-font mb-2">Classic T-Shirt</h3>
+                        <p class="text-slate-400 mb-6 line-clamp-2">Our 200 GSM premium cotton t-shirt. The perfect
+                            canvas for any DTG or screen print design.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-white">From Rs. 1,500</span>
+                            <a href="order.html"
+                                class="p-3 bg-slate-800 rounded-full hover:bg-primary hover:text-dark transition-colors group-hover:neon-glow border border-slate-700 group-hover:border-primary">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div
+                    class="glass rounded-3xl overflow-hidden group hover-scale border border-slate-700/50 fade-in opacity-0 translate-y-10 transition-all duration-700 delay-200">
+                    <div class="relative h-80 overflow-hidden bg-slate-800">
+                        <img src="images/hoodie.png" alt="Custom Hoodie"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/90 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold outfit-font mb-2">Premium Hoodie</h3>
+                        <p class="text-slate-400 mb-6 line-clamp-2">Thick, plush fleece hoodies meant to keep you warm
+                            and show off your custom logos perfectly.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-white">From Rs. 3,500</span>
+                            <a href="order.html"
+                                class="p-3 bg-slate-800 rounded-full hover:bg-primary hover:text-dark transition-colors group-hover:neon-glow border border-slate-700 group-hover:border-primary">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div
+                    class="glass rounded-3xl overflow-hidden group hover-scale border border-slate-700/50 fade-in opacity-0 translate-y-10 transition-all duration-700 delay-300">
+                    <div class="relative h-80 overflow-hidden bg-slate-800 flex items-center justify-center p-8">
+                        <!-- Using a local image as fallback for Trousers -->
+                        <img src="images/trouser.png" alt="Custom Trousers"
+                            class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700 opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/90 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold outfit-font mb-2">Custom Trousers</h3>
+                        <p class="text-slate-400 mb-6 line-clamp-2">Joggers and sweatpants with custom embroidered or
+                            printed text/logos down the leg or on the pocket.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-white">From Rs. 2,800</span>
+                            <a href="order.html"
+                                class="p-3 bg-slate-800 rounded-full hover:bg-primary hover:text-dark transition-colors group-hover:neon-glow border border-slate-700 group-hover:border-primary">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div
+                    class="glass rounded-3xl overflow-hidden group hover-scale border border-slate-700/50 fade-in opacity-0 translate-y-10 transition-all duration-700 delay-100">
+                    <div class="relative h-80 overflow-hidden bg-slate-800">
+                        <img src="images/cap.png" alt="Custom Cap"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/90 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold outfit-font mb-2">Snapback Caps</h3>
+                        <p class="text-slate-400 mb-6 line-clamp-2">High-quality structured caps ready for 3D puff
+                            embroidery or highly detailed screen prints.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-white">From Rs. 1,200</span>
+                            <a href="order.html"
+                                class="p-3 bg-slate-800 rounded-full hover:bg-primary hover:text-dark transition-colors group-hover:neon-glow border border-slate-700 group-hover:border-primary">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div
+                    class="glass rounded-3xl overflow-hidden group hover-scale border border-slate-700/50 fade-in opacity-0 translate-y-10 transition-all duration-700 delay-200">
+                    <div class="relative h-80 overflow-hidden bg-slate-800">
+                        <img src="images/shirt.png" alt="Custom Shirt"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/90 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold outfit-font mb-2">Formal/Casual Shirts</h3>
+                        <p class="text-slate-400 mb-6 line-clamp-2">Button-up shirts perfect for corporate wear. We can
+                            embroider your company logo cleanly.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-white">From Rs. 2,500</span>
+                            <a href="order.html"
+                                class="p-3 bg-slate-800 rounded-full hover:bg-primary hover:text-dark transition-colors group-hover:neon-glow border border-slate-700 group-hover:border-primary">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Box -->
+                <div
+                    class="bg-gradient-to-br from-primary/20 to-secondary/10 rounded-3xl p-8 border border-primary/30 flex flex-col justify-center items-center text-center fade-in opacity-0 translate-y-10 transition-all duration-700 delay-300">
+                    <h3 class="text-3xl font-bold outfit-font mb-4">Want something else?</h3>
+                    <p class="text-slate-300 mb-8">We can source and print on almost anything. Totes, aprons, jackets,
+                        you name it.</p>
+                    <a href="contact.html"
+                        class="bg-primary text-dark font-bold px-8 py-4 rounded-full hover:bg-white transition-all transform hover:scale-105 w-full shadow-[0_0_20px_rgba(249,115,22,0.4)]">
+                        Contact Us
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm">
+                &copy; 2026 Custom T-Works. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

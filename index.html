@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom T-Works | Premium Custom Clothing Printing</title>
+    <meta name="description"
+        content="Custom T-Works: We print your designs on T-shirts, shirts, hoodies, caps, and trousers. Premium quality custom apparel printing in Sri Lanka.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f97316', /* Orange */
+                        secondary: '#ea580c', /* Dark Orange */
+                        dark: '#0f172a', /* Navy Blue slate-900 */
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-slate-900 text-slate-50 antialiased overflow-x-hidden selection:bg-primary selection:text-dark">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex gap-2 items-center">
+                    <a href="index.html">
+                        <img src="images/logo.jpg" alt="Custom T-Works Logo"
+                            class="h-16 sm:h-20 w-auto object-contain py-1 rounded-sm bg-white/10 p-1">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-primary font-medium transition-colors">Home</a>
+                    <a href="products.html" class="text-slate-300 hover:text-white transition-colors">Products</a>
+                    <a href="order.html" class="text-slate-300 hover:text-white transition-colors">Order Now</a>
+                    <a href="contact.html" class="text-slate-300 hover:text-white transition-colors">Contact</a>
+                    <a href="order.html"
+                        class="bg-primary text-dark font-bold px-6 py-2 rounded-full hover:bg-white transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass mt-4 border-t border-slate-700/50">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-2 text-primary font-medium">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-slate-300 hover:text-white">Products</a>
+                <a href="order.html" class="block px-3 py-2 text-slate-300 hover:text-white">Order Now</a>
+                <a href="contact.html" class="block px-3 py-2 text-slate-300 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0 opacity-40">
+            <img src="images/hero.png" alt="High-tech clothing printing" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full col-span-12">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in opacity-0 translate-y-10 transition-all duration-1000">
+                    <div
+                        class="inline-block py-1 px-3 rounded-full bg-slate-800/80 border border-slate-700 text-primary text-sm font-semibold mb-6 tracking-wide shadow-lg">
+                        WE BRING YOUR DESIGNS TO LIFE
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold outfit-font leading-tight mb-6">
+                        Wear Your <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Imagination</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-8 max-w-xl leading-relaxed">
+                        From custom T-shirts and Hoodies to Caps and Trousers, we print exactly what you need. Premium
+                        quality, vibrant colors, and fast delivery across Sri Lanka.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="order.html"
+                            class="text-center bg-gradient-to-r from-primary to-secondary text-white font-bold px-8 py-4 rounded-full text-lg hover:shadow-[0_0_20px_rgba(249,115,22,0.6)] transition-all hover:-translate-y-1 block">
+                            Start Customizing Now
+                        </a>
+                        <a href="products.html"
+                            class="text-center bg-slate-800/60 border border-slate-700 hover:bg-slate-700 text-white font-bold px-8 py-4 rounded-full text-lg backdrop-blur-sm transition-all block">
+                            Explore Products
+                        </a>
+                    </div>
+                </div>
+                <div
+                    class="hidden lg:block fade-in opacity-0 translate-y-10 transition-all duration-1000 delay-300 relative">
+                    <!-- Decorative glowing orb -->
+                    <div
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -z-10">
+                    </div>
+                    <img src="images/tshirt_no_bg.png" alt="Premium Black Custom T-Shirt Mockup"
+                        class="w-full max-w-lg mx-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-105 hover:-rotate-2 transition-all duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / What we do -->
+    <section class="py-24 bg-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in opacity-0 translate-y-10 transition-all duration-700">
+                <h2 class="text-3xl lg:text-5xl font-bold outfit-font mb-4">You Design, <span class="text-primary">We
+                        Print</span></h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-lg">We use state-of-the-art printing tech to ensure your
+                    custom apparel looks exactly how you envisioned it. Durable, washable, and stunning.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div
+                    class="glass p-8 rounded-2xl border border-slate-700/50 hover-scale hover:border-primary/50 transition-all group fade-in opacity-0 translate-y-10 transition-all duration-700 delay-100">
+                    <div
+                        class="w-16 h-16 rounded-xl bg-slate-800 flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-dark transition-all">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 outfit-font">Custom Designs</h3>
+                    <p class="text-slate-400">Upload any design, logo, or artwork. We ensure perfect color transfer so
+                        your custom merch stands out from the crowd.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div
+                    class="glass p-8 rounded-2xl border border-slate-700/50 hover-scale hover:border-primary/50 transition-all group fade-in opacity-0 translate-y-10 transition-all duration-700 delay-200">
+                    <div
+                        class="w-16 h-16 rounded-xl bg-slate-800 flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-dark transition-all">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 outfit-font">Premium Apparel</h3>
+                    <p class="text-slate-400">We source only the finest base materials. High GSM count T-shirts, heavy
+                        plush hoodies, and durable caps ready for print.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div
+                    class="glass p-8 rounded-2xl border border-slate-700/50 hover-scale hover:border-primary/50 transition-all group fade-in opacity-0 translate-y-10 transition-all duration-700 delay-300">
+                    <div
+                        class="w-16 h-16 rounded-xl bg-slate-800 flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-dark transition-all">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 outfit-font">Fast Delivery</h3>
+                    <p class="text-slate-400">Quick turnaround times because we know you want your new custom fit ASAP.
+                        Bulk orders are processed with high efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Work Gallery -->
+    <section class="py-24 relative overflow-hidden bg-slate-950/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in opacity-0 translate-y-10 transition-all duration-700">
+                <a href="recent-work.html" class="inline-block hover:scale-105 transition-transform duration-300 group">
+                    <h2
+                        class="text-3xl lg:text-5xl font-bold outfit-font mb-4 group-hover:text-white transition-colors">
+                        Our <span class="text-primary">Recent
+                            Work</span> <span
+                            class="text-2xl lg:text-4xl text-primary opacity-0 group-hover:opacity-100 transition-opacity">➔</span>
+                    </h2>
+                </a>
+                <p class="text-slate-400 max-w-2xl mx-auto text-lg">Check out some of the premium custom products we've
+                    recently delivered to our happy clients.</p>
+            </div>
+
+            <div id="gallery-container"
+                class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 min-h-[400px]">
+                <!-- Images will be automatically injected here by GitHub API in script.js -->
+                <div class="col-span-full text-center text-slate-400 py-20 flex flex-col items-center justify-center">
+                    <svg class="animate-spin h-8 w-8 text-primary mb-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
+                    </svg>
+                    Loading our latest work...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Reviews Section -->
+    <section class="py-24 relative" id="reviews">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+                <!-- Testimonial Display -->
+                <div class="lg:col-span-7 fade-in opacity-0 translate-y-10 transition-all duration-700">
+                    <h2 class="text-3xl lg:text-5xl font-bold outfit-font mb-6">Our Client <span
+                            class="text-primary">Reviews</span></h2>
+                    <div class="space-y-6 max-h-[800px] overflow-y-auto pr-2" id="reviews-container"
+                        style="scrollbar-width: thin; scrollbar-color: #f97316 transparent;">
+                        <!-- Review 1 - E' Pure Fragrance -->
+                        <div class="glass p-8 rounded-3xl border border-slate-700/50 relative">
+                            <p class="text-slate-300 text-lg italic mb-6 leading-relaxed">"කියලා වැඩක් නෑ වැඩක් දුන්නොත්
+                                ලෙසටම වෙලාවටම දුන්නා. මොන වැඩේ තිබ්බත් වචනේ අහක දැම්මේ නෑ නියම වැඩක් ලස්සනටම කරලා දුන්නා
+                                ❤️ කියලා වැඩක් නෑ තව තව ඕඩර්ස් දෙනවා රෑ කීයට කතාකලත් ආහ් අයියේ කියන්න කියලා ඇරෙන්න කෝල්
+                                කට් කිරිලි මිස් කිරිලි නෑ ❤️"</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-xl font-bold text-primary">
+                                    E</div>
+                                <div>
+                                    <h4 class="text-white font-bold outfit-font">E' Pure Fragrance</h4>
+                                    <span class="text-sm text-slate-500">Facebook Review</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 2 - Bandula Battery -->
+                        <div class="glass p-8 rounded-3xl border border-slate-700/50 relative">
+                            <p class="text-slate-300 text-lg italic mb-6">"Fantastic service! The team did an amazing
+                                job printing our business T-shirts — great quality, sharp prints, and super fast
+                                turnaround. Highly recommend for anyone needing custom apparel done right!"</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-xl font-bold text-primary">
+                                    B</div>
+                                <div>
+                                    <h4 class="text-white font-bold outfit-font">Bandula Battery Sales & Service</h4>
+                                    <span class="text-sm text-slate-500">Facebook Review</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 3 - WhatsApp Customer -->
+                        <div class="glass p-8 rounded-3xl border border-slate-700/50 relative">
+                            <p class="text-slate-300 text-lg italic mb-6">"Ada hamoma sathutin t shirts tika bara
+                                gaththa mata ekata hari sathutui mokada mamai oyata denna thiranaya kale. Oyata godak
+                                isthuthii 🙏 mage wade hariyata karala dunnata. Mage anith wadeth oyata dennam."</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-xl font-bold text-primary">
+                                    W</div>
+                                <div>
+                                    <h4 class="text-white font-bold outfit-font">Happy Customer</h4>
+                                    <span class="text-sm text-slate-500">WhatsApp Feedback</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 4 - Organic Tea Queen -->
+                        <div class="glass p-8 rounded-3xl border border-slate-700/50 relative">
+                            <p class="text-slate-300 text-lg italic mb-6">"Perfect print + perfect fabric = perfect
+                                tees! Thank you for the beautiful work 👕✨.. Keep up the good work! Good luck❤️"</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-xl font-bold text-primary">
+                                    O</div>
+                                <div>
+                                    <h4 class="text-white font-bold outfit-font">Organic Tea Queen - Ella</h4>
+                                    <span class="text-sm text-slate-500">Facebook Review</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 5 - Dinesh Marasinghe -->
+                        <div class="glass p-8 rounded-3xl border border-slate-700/50 relative">
+                            <p class="text-slate-300 text-lg italic mb-6">"Highly Recommended 💯❤️"</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-xl font-bold text-primary">
+                                    D</div>
+                                <div>
+                                    <h4 class="text-white font-bold outfit-font">Dinesh Marasinghe</h4>
+                                    <span class="text-sm text-slate-500">Facebook Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Submit Form -->
+                <div class="lg:col-span-5 fade-in opacity-0 translate-y-10 transition-all duration-700 delay-200">
+                    <div
+                        class="glass p-8 rounded-3xl border border-slate-700/50 relative overflow-hidden hover-scale border-primary/20">
+                        <h3 class="text-2xl outfit-font font-bold mb-2 text-white">Leave a Review!</h3>
+                        <p class="text-sm text-slate-400 mb-6">Got your merch? Tell us how it was! We love hearing from
+                            you.</p>
+
+                        <form action="https://formspree.io/f/mvzvrjvk" method="POST" class="space-y-4 relative z-10">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-1">Your Name</label>
+                                <input type="text" name="Reviewer_Name" required
+                                    class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-1">Your Review</label>
+                                <textarea name="Review" required rows="4"
+                                    class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white transition-colors"
+                                    placeholder="How was the print quality?"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-3 text-lg py-4 rounded-xl hover:-translate-y-1 transition-all">
+                                Submit Review
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <a href="index.html" class="mb-6 block inline-block">
+                        <img src="images/logo.jpg" alt="Custom T-Works Logo"
+                            class="h-20 w-auto object-contain rounded-sm bg-white/10 p-1">
+                    </a>
+                    <p class="text-slate-400 mb-6">The best custom printing service in the island. You provide the idea,
+                        we wear the risk of making it perfect.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1CfKazcVnj/?mibextid=wwXIfr" target="_blank"
+                            class="text-slate-400 hover:text-primary transition-colors hover:scale-110 transform inline-block">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@customtlk?is_from_webapp=1&sender_device=pc" target="_blank"
+                            class="text-slate-400 hover:text-primary transition-colors hover:scale-110 transform inline-block">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.23-1.15 4.35-2.92 5.56-1.74 1.18-3.9 1.48-5.88 1.25-2.22-.27-4.22-1.41-5.46-3.23-1.04-1.55-1.4-3.5-1.13-5.34.28-1.99 1.25-3.8 2.81-5.06 1.59-1.28 3.7-1.85 5.71-1.7v4.06c-1.05-.05-2.12.33-2.93 1-1.06.87-1.54 2.28-1.4 3.65.11 1.05.7 2.05 1.57 2.62.91.59 2.11.75 3.16.51 1.22-.29 2.18-1.21 2.58-2.39.18-.53.2-1.1.2-1.66V.02z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold outfit-font mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="products.html" class="text-slate-400 hover:text-white transition-colors">Our
+                                Products</a></li>
+                        <li><a href="order.html" class="text-slate-400 hover:text-white transition-colors">Place an
+                                Order</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold outfit-font mb-6">Contact Details</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-slate-400">
+                            <svg class="h-5 w-5 text-primary shrink-0 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>44/3, Quary Road,<br>2nd lane, Mirihana,Nugegoda.</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-400">
+                            <svg class="h-5 w-5 text-primary shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h2.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            <span class="font-bold text-white tracking-widest">074 026 5989</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm">
+                &copy; 2026 Custom T-Works. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
