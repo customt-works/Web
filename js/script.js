@@ -180,4 +180,78 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(err => console.error('Error fetching reviews:', err));
     }
 
+    // Dynamic Materials Loading (from CSV)
+    const materialSelect = document.getElementById('material-select');
+    if (materialSelect) {
+        fetch('materials.csv')
+            .then(response => response.text())
+            .then(csvText => {
+                const lines = csvText.split('\n').slice(1); // Skip header
+                if (lines.length === 0) return;
+
+                // Keep the first option if you want, or clear all
+                materialSelect.innerHTML = '';
+                
+                lines.forEach(line => {
+                    const material = line.trim();
+                    if (material) {
+                        const option = document.createElement('option');
+                        option.textContent = material;
+                        option.value = material;
+                        materialSelect.appendChild(option);
+                    }
+                });
+            })
+            .catch(err => console.error('Error loading materials:', err));
+    }
+
+    // Dynamic Size Charts & Sizes Logic
+    const apparelTypeSelect = document.getElementById('apparel-type-select');
+    const sizeSelect = document.getElementById('size-select');
+    const sizeChartContainer = document.getElementById('size-chart-container');
+    const sizeChartImg = document.getElementById('size-chart-img');
+
+    if (apparelTypeSelect && sizeSelect) {
+        const updateApparelConfig = () => {
+            const type = apparelTypeSelect.value;
+            let chartSrc = "";
+            let sizes = ["Small (S)", "Medium (M)", "Large (L)", "Extra Large (XL)", "XXL"];
+            let showSizes = true;
+
+            if (type.includes("T-Shirt") || type.includes("Hoodie") || type.includes("Shirt")) {
+                chartSrc = "images/size_charts/t_shirt size_chart.jpeg";
+            } else if (type.includes("Trouser")) {
+                chartSrc = "images/size_charts/trousers size_chart.jpeg";
+                sizes = ["28", "30", "32", "34", "36", "38", "40"];
+            } else if (type.includes("Shorts")) {
+                chartSrc = "images/size_charts/shorts size_chart.jpeg";
+            } else if (type.includes("Skinnies")) {
+                chartSrc = "images/size_charts/skinny size_chart.jpeg";
+            } else if (type.includes("Cap")) {
+                showSizes = false;
+                chartSrc = ""; // No size chart for caps
+            }
+
+            // Update Size Chart
+            if (chartSrc) {
+                sizeChartImg.src = chartSrc;
+                sizeChartContainer.classList.remove('hidden');
+            } else {
+                sizeChartContainer.classList.add('hidden');
+            }
+
+            // Update Sizes Dropdown
+            if (showSizes) {
+                sizeSelect.parentElement.classList.remove('hidden');
+                sizeSelect.innerHTML = sizes.map(s => `<option value="${s}">${s}</option>`).join('');
+            } else {
+                sizeSelect.parentElement.classList.add('hidden');
+            }
+        };
+
+        apparelTypeSelect.addEventListener('change', updateApparelConfig);
+        // Run once on load to set initial state
+        updateApparelConfig();
+    }
+
 });

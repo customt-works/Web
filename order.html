@@ -127,10 +127,12 @@
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-slate-400 mb-2">Apparel Type</label>
-                                <select name="ApparelType"
+                                <select name="ApparelType" id="apparel-type-select"
                                     class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white appearance-none cursor-pointer">
                                     <option>Classic T-Shirt</option>
                                     <option>Premium Hoodie</option>
+                                    <option>Custom Shorts</option>
+                                    <option>Athletic Skinnies</option>
                                     <option>Custom Trousers</option>
                                     <option>Snapback Cap</option>
                                     <option>Formal/Casual Shirt</option>
@@ -142,7 +144,9 @@
                                     class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white appearance-none cursor-pointer">
                                     <option>Standard Cotton (190 GSM)</option>
                                     <option>Wetlook</option>
-                                    <option>Crocodiles</option>
+                                    <option>Crocodile (SIGIRI)</option>
+                                    <option>Crocodile (V8)</option>
+                                    <option>Crocodile (Bangkok)</option>
                                     <option>Honeycomb</option>
                                 </select>
                             </div>
@@ -346,7 +350,7 @@
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-slate-400 mb-2">Size</label>
-                                <select name="Size"
+                                <select name="Size" id="size-select"
                                     class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white appearance-none cursor-pointer">
                                     <option>Small (S)</option>
                                     <option selected>Medium (M)</option>
@@ -354,7 +358,6 @@
                                     <option>Extra Large (XL)</option>
                                     <option>XXL</option>
                                 </select>
-                            </div>
                             <div>
                                 <label class="block text-sm font-medium text-slate-400 mb-2">Quantity <span
                                         class="text-xs text-primary">(Min: 5)</span></label>
@@ -362,6 +365,15 @@
                                     onchange="if(this.value < 5) this.value = 5;"
                                     onblur="if(this.value < 5 || this.value === '') this.value = 5;"
                                     class="w-full bg-slate-900/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-white">
+                            </div>
+
+                            <!-- Size Chart Display -->
+                            <div id="size-chart-container" class="md:col-span-2 hidden">
+                                <label class="block text-sm font-medium text-slate-400 mb-2 font-bold">Size Chart Reference</label>
+                                <div class="glass p-4 rounded-2xl border border-slate-700/50 flex flex-col items-center bg-slate-950/50 mb-4 transition-all duration-300">
+                                    <img id="size-chart-img" src="" alt="Size Chart" class="max-h-80 object-contain rounded-lg cursor-zoom-in" onclick="openLightbox(this.src)">
+                                    <p class="text-xs text-slate-500 mt-2 italic">Click image to zoom</p>
+                                </div>
                             </div>
                         </div>
                     </div>
