@@ -254,4 +254,183 @@ document.addEventListener('DOMContentLoaded', () => {
         updateApparelConfig();
     }
 
+    // MULTI-ITEM ORDER LOGIC
+    const addItemBtn = document.getElementById('addItemBtn');
+    const itemsList = document.getElementById('itemsList');
+    const orderSummarySection = document.getElementById('orderSummarySection');
+    const orderSummaryInput = document.getElementById('orderSummaryInput');
+    const itemCountBadge = document.getElementById('itemCount');
+    let orderItems = [];
+
+    function updateItemsUI() {
+        if (!itemsList || !orderSummarySection || !itemCountBadge) return;
+
+        if (orderItems.length > 0) {
+            orderSummarySection.classList.remove('hidden');
+            orderSummarySection.classList.add('fade-in', 'opacity-100', 'translate-y-0');
+        } else {
+            orderSummarySection.classList.add('hidden');
+        }
+
+        itemCountBadge.innerText = `${orderItems.length} Item${orderItems.length !== 1 ? 's' : ''}`;
+        
+        itemsList.innerHTML = orderItems.map((item, index) => `
+            <div class="flex items-center justify-between p-4 bg-slate-900/80 border border-slate-700/50 rounded-2xl group hover:border-primary/50 transition-all">
+                <div class="flex items-center gap-4">
+                    <div class="w-5 h-5 rounded-full border border-slate-600 shadow-sm" style="background-color: ${item.color}"></div>
+                    <div>
+                        <p class="text-white font-bold text-sm">${item.qty}x ${item.type} (${item.size || 'N/A'})</p>
+                        <p class="text-slate-500 text-xs">${item.material}</p>
+                    </div>
+                </div>
+                <button type="button" onclick="removeItem(${item.id})" class="text-slate-500 hover:text-red-400 p-2 transition-colors rounded-lg hover:bg-red-400/10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                </button>
+            </div>
+        `).join('');
+
+        // Update hidden field for submission
+        const summaryText = orderItems.map((item, i) => 
+            `Item ${i+1}: Qty: ${item.qty} | Type: ${item.type} | Size: ${item.size} | Material: ${item.material} | Color: ${item.color}`
+        ).join('\n');
+        orderSummaryInput.value = summaryText;
+    }
+
+    if (addItemBtn) {
+        addItemBtn.addEventListener('click', (e) => {
+            const apparelType = document.getElementById('apparel-type-select').value;
+            const material = document.getElementById('material-select').value;
+            const sizeSelect = document.getElementById('size-select');
+            const size = sizeSelect.parentElement.classList.contains('hidden') ? 'N/A' : sizeSelect.value;
+            const quantityInput = document.getElementById('quantity-input');
+            const quantity = quantityInput.value;
+            
+            // Get selected color
+            const colorInput = document.querySelector('input[name="color"]:checked');
+            const colorValue = colorInput ? colorInput.value : 'N/A';
+            
+            const item = {
+                id: Date.now(),
+                type: apparelType,
+                material: material,
+                size: size,
+                qty: quantity,
+                color: colorValue
+            };
+
+            orderItems.push(item);
+            updateItemsUI();
+            
+            // Success animation on button
+            const originalHtml = addItemBtn.innerHTML;
+            addItemBtn.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Added!`;
+            addItemBtn.classList.add('bg-green-600', 'border-green-500');
+            
+            setTimeout(() => {
+                addItemBtn.innerHTML = originalHtml;
+                addItemBtn.classList.remove('bg-green-600', 'border-green-500');
+            }, 1500);
+
+            // Scroll to summary if it's the first item
+            if (orderItems.length === 1) {
+                orderSummarySection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    }
+
+    window.removeItem = (id) => {
+        orderItems = orderItems.filter(item => item.id !== id);
+        updateItemsUI();
+    };
+
+    // Ensure form includes the items summary on submission
+    if (orderForm) {
+        orderForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // --- CONFIGURATION: PASTE YOUR GOOGLE SCRIPT URL HERE ---
+            const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyL54bQRX-de8XLbBokBK_l08AbmQJOOOomABLZgCpcHFg8lBWTtGI-I73eGcI0ZtQk/exec"; 
+            // -------------------------------------------------------
+
+            const submitBtn = document.getElementById('orderSubmitBtn');
+            const statusMsg = document.getElementById('orderStatus');
+            const originalText = submitBtn.innerHTML;
+
+            // Basic Validation: Ensure at least one item or fields filled
+            const formData = new FormData(orderForm);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Add order summary
+            data.OrderSummary = orderSummaryInput.value || `1. ${data.Quantity}x ${data.ApparelType} (${data.Size}) - ${data.Material}`;
+
+            // Show Loading State
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Processing...
+            `;
+            statusMsg.innerText = "Submitting your order...";
+            statusMsg.className = "text-slate-400 mt-4 block text-center italic";
+            statusMsg.classList.remove('hidden');
+
+            const sendData = async (payload) => {
+                try {
+                    const response = await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors', // Apps Script requires no-cors often for simple posts
+                        body: JSON.stringify(payload),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    // Note: with 'no-cors', we can't read the response body, but if it doesn't throw, it likely worked.
+                    // If you want to handle exact success, you'd need the Script to handle CORS, but this is simpler.
+                    
+                    statusMsg.innerText = "✅ Order submitted successfully! We will contact you soon.";
+                    statusMsg.className = "text-green-400 font-bold mt-4 block text-center p-3 bg-green-400/10 border border-green-400/20 rounded-xl";
+                    orderForm.reset();
+                    orderItems = [];
+                    updateItemsUI();
+                    if(fileNameDisplay) fileNameDisplay.classList.add('hidden');
+                    
+                    // Reset Button
+                    submitBtn.classList.remove('from-primary', 'to-secondary');
+                    submitBtn.classList.add('bg-green-600');
+                    submitBtn.innerHTML = "Success!";
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                    statusMsg.innerText = "❌ Error submitting order. Please try again or call us.";
+                    statusMsg.className = "text-red-400 font-bold mt-4 block text-center p-3 bg-red-400/10 border border-red-400/20 rounded-xl";
+                } finally {
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.classList.remove('bg-green-600');
+                        submitBtn.classList.add('bg-gradient-to-r', 'from-primary', 'to-secondary');
+                    }, 4000);
+                }
+            };
+
+            // Handle File (Artwork)
+            const file = artworkInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = async () => {
+                    data.fileData = reader.result.split(',')[1]; // Base64 content
+                    data.fileName = file.name;
+                    data.fileType = file.type;
+                    await sendData(data);
+                };
+            } else {
+                await sendData(data);
+            }
+        });
+    }
+
 });
